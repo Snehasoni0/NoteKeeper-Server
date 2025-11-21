@@ -11,7 +11,7 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    'https://note-keeper-frontend-alpha.vercel.app/',
+    'https://note-keeper-frontend-alpha.vercel.app',
     'http://localhost:5173'
   ],
   credentials: true,
@@ -19,10 +19,8 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-app.options('*', cors(corsOptions));
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
 
 app.use("/api/auth", Authrouter);
