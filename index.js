@@ -13,7 +13,10 @@ app.use(cors({
   origin: [
     "https://note-keeper-frontend-alpha.vercel.app",
     "http://localhost:5173"
-  ]
+  ],
+  credentials: true,   // <<-- THIS IS MANDATORY
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json());
