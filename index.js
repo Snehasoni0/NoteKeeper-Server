@@ -9,18 +9,17 @@ dotenv.config();
 
 const app = express();
 
-const corsOptions = {
+app.use(cors({
   origin: [
     'https://note-keeper-frontend-alpha.vercel.app',
     'http://localhost:5173'
   ],
-  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-};
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
+app.options('*', cors());
 
-app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/auth", Authrouter);
