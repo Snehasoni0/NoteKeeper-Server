@@ -11,7 +11,7 @@ router.post('/add', middleware, async (req, res) => {
       title,
       description,
       userId: req.user.id
-    })
+    });
     await newNote.save();
 
     return res
